@@ -113,7 +113,7 @@ body {
 
 .header {
   padding: 33px 0 120px 0;
-  background-image: url("./img/header/bg.jpg");
+  background-image: url("../img/header/bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center 0;
