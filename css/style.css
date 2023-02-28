@@ -1,4 +1,3 @@
-@charset "UTF-8";
 * {
   padding: 0;
   margin: 0;
@@ -87,8 +86,8 @@ h6 {
 }
 
 body {
+  font-size: 14px;
   background-color: #ffffff;
-  height: 1000px;
 }
 
 .wrapper {
@@ -96,6 +95,8 @@ body {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  background-color: hsl(60, 27%, 88%);
+  padding-bottom: 80px;
 }
 
 .content {
@@ -105,670 +106,196 @@ body {
 .container {
   padding: 0px 15px;
   margin: 0 auto;
-  max-width: 1200px;
-}
-.container__eggs-30 {
-  max-width: 1380px;
+  max-width: 1111px;
 }
 
-.header {
-  padding: 33px 0 120px 0;
-  background-image: url("../img/header/bg.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center 0;
+.games__body {
+  padding: 104px 0 85px 0;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 30px;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
 }
-.header__image {
+@media (max-width: 1100px) {
+  .games__body {
+    grid-template-columns: repeat(2, 255px);
+  }
+}
+@media (max-width: 570px) {
+  .games__body {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.games__body img {
   max-width: 100%;
+  border-radius: 9px;
 }
-.header__image-square {
-  width: 4px;
-  height: 4px;
-  margin-right: 40px;
+.games__big-image {
+  display: grid;
+  position: relative;
 }
-@media (max-width: 900px) {
-  .header__image-square {
-    display: none;
+@media (min-width: 1100px) {
+  .games__big-image {
+    grid-column: span 2;
+    grid-row: span 2;
   }
 }
-.header__link {
-  color: #fff;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  text-align: left;
-  margin-right: 40px;
-  transition: color 0.3s ease;
-}
-@media (max-width: 900px) {
-  .header__link {
-    margin-right: 0px;
-    font-size: 20px;
-    padding-bottom: 40px;
+@media (min-width: 570px) {
+  .games__big-image {
+    grid-column: span 2;
+    grid-row: span 2;
+    justify-content: center;
   }
 }
-.header__box {
-  display: flex;
-  justify-content: space-between;
+.games__image {
+  position: relative;
 }
-.header__button {
-  color: #fff;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  text-align: left;
-  border: solid 2px #fff;
-  padding: 11px 17px;
-  background-color: transparent;
-  border-radius: 4px;
-  transition: color 0.2s ease, background-color 0.2s ease;
-}
-.header__button:hover {
-  color: #000;
-  background-color: #fff;
-}
-.header__subtitle {
-  color: #fff;
-  font-size: 13px;
-  font-weight: 700;
-  line-height: 24px;
-  text-align: center;
-  margin-bottom: 60px;
-}
-.header__text-box {
-  text-align: center;
-}
-.header__title {
-  color: #fff;
-  /* Если меньше контейнера */
-  font-size: 71px;
-  font-weight: 700;
-  line-height: 109.8591549296%;
-  letter-spacing: 1px;
-  text-align: center;
-  padding: 148px 0 35px 0;
-}
-@media (max-width: 1200px) {
-  .header__title {
-    font-size: calc(50px + 21 * ((100vw - 320px) / 880));
+@media (max-width: 570px) {
+  .games__image {
+    padding-bottom: 60%;
   }
-}
-
-.menu {
-  display: flex;
-  align-items: center;
-}
-@media (max-width: 900px) {
-  .menu {
-    display: none;
-  }
-  .menu._active {
-    display: flex;
+  .games__image img {
     width: 100%;
     height: 100%;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #5AB963;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
 }
-
-.button {
-  color: #fff;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 30px;
-  text-align: center;
-  background-color: #5AB963;
-  padding: 15px 30px;
-  border-radius: 4px;
-  transition: color 0.2s ease, background-color 0.2s ease;
-}
-.button:hover {
-  color: #000;
-  background-color: #fff;
-}
-
-.burger {
-  width: 30px;
-  height: 30px;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  z-index: 110;
-  cursor: pointer;
-  background-color: transparent;
-}
-@media (min-width: 900px) {
-  .burger {
-    display: none;
-  }
-}
-
-.burger span {
-  width: 25px;
-  height: 2px;
-  position: relative;
-  transition: background-color 0.2s ease-in-out 0s;
-  background-color: #ffffff;
-}
-
-.burger span:before,
-.burger span:after {
-  content: "";
-  width: 25px;
-  height: 2px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.games__link {
   position: absolute;
-  transition: background-color 0.2s ease-in-out 0s, transform 0.2s ease-in-out 0s;
-  background-color: #ffffff;
-}
-
-.burger span:before {
-  top: -8px;
-}
-
-.burger span:after {
-  top: 8px;
-}
-
-.burger._active span {
-  background-color: transparent;
-}
-
-.burger._active span:before {
-  transform: rotate(45deg) translate(5px, 6px);
-}
-
-.burger._active span:after {
-  transform: rotate(-45deg) translate(5px, -6px);
-}
-
-.text__body {
-  padding: 120px 0 54px 0;
-}
-.text__row {
-  max-width: 507px;
-}
-.text__gray {
-  color: #999999;
-  /* Если меньше контейнера */
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 150%;
-  letter-spacing: 0em;
-  text-align: left;
-}
-@media (max-width: 1200px) {
-  .text__gray {
-    font-size: calc(16px + 8 * ((100vw - 320px) / 880));
-  }
-}
-.text__black {
-  color: #000;
-  /* Если меньше контейнера */
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 150%;
-  text-align: left;
-}
-@media (max-width: 1200px) {
-  .text__black {
-    font-size: calc(16px + 8 * ((100vw - 320px) / 880));
-  }
-}
-
-.carts__body {
+  bottom: 0px;
+  left: 0px;
+  background: linear-gradient(180deg, #2A2A2A 0%, #2A2A2A 100%);
+  border-radius: 0 0 9px 9px;
+  width: 100%;
+  height: 46px;
+  padding: 12px;
   display: flex;
-  padding-bottom: 120px;
-}
-@media (max-width: 552px) {
-  .carts__body {
-    flex-wrap: wrap;
-  }
-}
-.carts__row {
-  /* Если меньше контейнера */
-  padding-top: 51px;
-  /* Если меньше контейнера */
-  padding-right: 64px;
-  /* Если меньше контейнера */
-  padding-bottom: 109px;
-  /* Если меньше контейнера */
-  padding-left: 41px;
-  border: solid 1px rgba(0, 0, 0, 0.0509803922);
-  margin-right: 20px;
-  flex: 0 1 31.3333%;
-}
-@media (max-width: 1200px) {
-  .carts__row {
-    padding-top: calc(25px + 26 * ((100vw - 320px) / 880));
-  }
-}
-@media (max-width: 1200px) {
-  .carts__row {
-    padding-right: calc(15px + 49 * ((100vw - 320px) / 880));
-  }
-}
-@media (max-width: 1200px) {
-  .carts__row {
-    padding-bottom: calc(25px + 84 * ((100vw - 320px) / 880));
-  }
-}
-@media (max-width: 1200px) {
-  .carts__row {
-    padding-left: calc(15px + 26 * ((100vw - 320px) / 880));
-  }
-}
-.carts__row:last-child {
-  margin-right: 0px;
-}
-@media (max-width: 552px) {
-  .carts__row {
-    flex: 0 1 100%;
-    margin-bottom: 20px;
-  }
-}
-.carts__image {
-  max-width: 100%;
-  margin-bottom: 25px;
-}
-.carts__text-black {
-  color: #000;
-  /* Если меньше контейнера */
-  font-size: 16px;
+  font-family: "Trebuchet MS";
+  font-size: 18px;
   font-weight: 700;
-  line-height: 184.6153846154%;
-  text-align: left;
-  margin-bottom: 13px;
+  line-height: 21px;
+  color: #fff;
+  transition: color 0.3s ease;
 }
-@media (max-width: 1200px) {
-  .carts__text-black {
-    font-size: calc(12px + 4 * ((100vw - 320px) / 880));
-  }
-}
-.carts__text-gray {
-  color: #999999;
-  /* Если меньше контейнера */
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 184.6153846154%;
-  text-align: left;
-}
-@media (max-width: 1200px) {
-  .carts__text-gray {
-    font-size: calc(12px + 1 * ((100vw - 320px) / 880));
-  }
+.games__link:hover {
+  color: #F9A43F;
 }
 
-.block-eggs__image img {
+.product__body {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+@media (max-width: 850px) {
+  .product__body {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 630px) {
+  .product__body {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 570px) {
+  .product__body {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.product__image {
+  margin-top: 28px;
+}
+.product__image img {
   max-width: 100%;
 }
-.block-eggs__row {
+.product__row {
   display: flex;
-  align-items: center;
+}
+.product__cart {
+  margin-top: 9px;
+  margin-right: 20px;
+}
+.product__carts-text {
+  display: flex;
   flex-direction: column;
-  margin-top: 115px;
-  margin-bottom: 140px;
+  align-items: center;
 }
-.block-eggs__row .text__gray {
-  max-width: 685px;
-  text-align: center;
+.product__container-carts {
+  background-color: #fff;
+  border-radius: 9px;
+  max-height: 409px;
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
-
-.text__green {
-  color: #5AB963;
+.product__number {
+  font-family: "Trebuchet MS";
   font-size: 11px;
   font-weight: 400;
-  line-height: 18px;
-  text-align: center;
-  text-transform: uppercase;
-  margin-top: 6px;
+  line-height: 13px;
+  color: #2A2A2A;
 }
-
-.foot__box {
-  max-width: 362px;
-}
-@media (max-width: 630px) {
-  .foot__box {
-    margin-bottom: 40px;
-  }
-}
-.foot__body {
-  padding-bottom: 120px;
-}
-@media (max-width: 600px) {
-  .foot__body {
-    padding-bottom: 100px;
-  }
-}
-
-.foot-01__row {
-  display: flex;
-}
-@media (max-width: 630px) {
-  .foot-01__row {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-}
-.foot-01__image {
-  padding: 0 100px 93px 0;
-}
-@media (max-width: 800px) {
-  .foot-01__image {
-    padding: 0 50px 93px 0;
-  }
-}
-@media (max-width: 630px) {
-  .foot-01__image {
-    padding-bottom: 40px;
-    padding-right: 0px;
-  }
-}
-.foot-01__image img {
-  max-width: 100%;
-}
-.foot-01__text {
-  color: #999999;
-  /* Если меньше контейнера */
-  font-size: 24px;
-  font-weight: 100;
-  line-height: 150%;
-  text-align: left;
-}
-@media (max-width: 1200px) {
-  .foot-01__text {
-    font-size: calc(16px + 8 * ((100vw - 320px) / 880));
-  }
-}
-.foot-01__text-black {
-  color: #000;
-  /* Если меньше контейнера */
-  font-size: 24px;
-  font-weight: 100;
-  line-height: 150%;
-  text-align: left;
-}
-@media (max-width: 1200px) {
-  .foot-01__text-black {
-    font-size: calc(16px + 8 * ((100vw - 320px) / 880));
-  }
-}
-.foot-01__text-gray {
-  color: #999999;
-  /* Если меньше контейнера */
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 184.6153846154%;
-  text-align: left;
-  margin-top: 25px;
-}
-@media (max-width: 1200px) {
-  .foot-01__text-gray {
-    font-size: calc(11px + 2 * ((100vw - 320px) / 880));
-  }
-}
-
-.foot-02__row {
-  display: flex;
-  justify-content: flex-end;
-}
-@media (max-width: 630px) {
-  .foot-02__row {
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-  }
-}
-.foot-02__image {
-  padding: 0 0 100px 100px;
-}
-.foot-02__image img {
-  max-width: 100%;
-}
-@media (max-width: 800px) {
-  .foot-02__image {
-    padding: 0 0 100px 50px;
-  }
-}
-@media (max-width: 630px) {
-  .foot-02__image {
-    padding-bottom: 40px;
-    padding-left: 0px;
-  }
-}
-.foot-02__text {
-  color: #999999;
-  /* Если меньше контейнера */
-  font-size: 24px;
-  font-weight: 100;
-  line-height: 150%;
-  text-align: left;
-}
-@media (max-width: 1200px) {
-  .foot-02__text {
-    font-size: calc(16px + 8 * ((100vw - 320px) / 880));
-  }
-}
-.foot-02__text-black {
-  color: #000;
-  /* Если меньше контейнера */
-  font-size: 24px;
-  font-weight: 100;
-  line-height: 150%;
-  text-align: left;
-}
-@media (max-width: 1200px) {
-  .foot-02__text-black {
-    font-size: calc(16px + 8 * ((100vw - 320px) / 880));
-  }
-}
-.foot-02__text-gray {
-  color: #999999;
-  /* Если меньше контейнера */
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 184.6153846154%;
-  text-align: left;
-  margin-top: 25px;
-}
-@media (max-width: 1200px) {
-  .foot-02__text-gray {
-    font-size: calc(11px + 2 * ((100vw - 320px) / 880));
-  }
-}
-@media (max-width: 630px) {
-  .foot-02__text-gray {
-    margin-bottom: 20px;
-  }
-}
-
-.text-end__row .text__green {
-  text-align: center;
-}
-.text-end__black {
-  color: #000;
-  /* Если меньше контейнера */
+.product__text {
+  font-family: "Trebuchet MS";
   font-size: 16px;
   font-weight: 700;
-  line-height: 150%;
-  margin-bottom: 12px;
+  line-height: 21px;
+  color: #2A2A2A;
   text-align: center;
+  margin: 12px 0 9px 0;
 }
-@media (max-width: 1200px) {
-  .text-end__black {
-    font-size: calc(12px + 4 * ((100vw - 320px) / 880));
-  }
+.product__prise {
+  font-family: "Trebuchet MS";
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 24px;
+  color: #2A2A2A;
+  margin-bottom: 11px;
+}
+.product__prise_line {
+  font-family: "Trebuchet MS";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21px;
+  text-decoration: line-through;
+  text-align: left;
 }
 
-.party {
-  position: relative;
-}
-.party__box {
-  display: flex;
-  justify-content: space-between;
-}
-@media (max-width: 530px) {
-  .party__box {
-    display: flex;
-    flex-direction: column;
-  }
-}
-.party__body {
-  padding-bottom: 150px;
-}
-.party__text-green {
-  display: inline-flex;
-  position: relative;
-  color: #5AB963;
-  /* Если меньше контейнера */
+.button__start {
+  font-family: "Trebuchet MS";
   font-size: 16px;
   font-weight: 700;
-  line-height: 150%;
-  letter-spacing: 0em;
-  text-align: left;
-  margin-bottom: 15px;
-}
-@media (max-width: 1200px) {
-  .party__text-green {
-    font-size: calc(12px + 4 * ((100vw - 320px) / 880));
-  }
-}
-.party__text-green::after {
-  content: "";
-  margin-left: 90px;
-  width: 30px;
-  height: 2px;
-  position: absolute;
-  top: 10px;
-  right: -40px;
-  background-color: #5AB963;
-}
-.party__text {
-  color: #999999;
-  /* Если меньше контейнера */
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 150%;
-  letter-spacing: 0em;
-  text-align: left;
-  max-width: 483px;
-}
-@media (max-width: 1200px) {
-  .party__text {
-    font-size: calc(16px + 8 * ((100vw - 320px) / 880));
-  }
-}
-@media (max-width: 530px) {
-  .party__text {
-    margin-bottom: 20px;
-  }
-}
-.party__text-black {
-  color: #000;
-  /* Если меньше контейнера */
-  font-size: 24px;
-  font-weight: 100;
-  line-height: 150%;
-  letter-spacing: 0em;
-  text-align: left;
-}
-@media (max-width: 1200px) {
-  .party__text-black {
-    font-size: calc(16px + 8 * ((100vw - 320px) / 880));
-  }
-}
-.party__button {
+  line-height: 19px;
   color: #fff;
+  background: linear-gradient(184.53deg, #F9A43F 5.27%, #FB791B 91.78%);
+  padding: 7px 19px 8px 40px;
+  border-radius: 9px;
+  margin-bottom: 10px;
+}
+.button__start:hover {
+  background: linear-gradient(184.53deg, #e79735 5.27%, #db6713 91.78%);
+}
+.button__end {
+  font-family: "Trebuchet MS";
   font-size: 16px;
-  font-weight: 400;
-  line-height: 30px;
-  text-align: center;
-  background-color: #5AB963;
-  padding: 14px 30px 16px 30px;
-  border-radius: 4px;
-  transition: color 0.2s ease, background-color 0.2s ease;
-}
-.party__button:hover {
-  color: #fff;
-  background-color: #000;
-}
-@media (min-width: 500px) {
-  .party__button {
-    white-space: nowrap;
-  }
-}
-
-.footer {
-  background-color: #0A0E1A;
-}
-.footer__body {
-  padding-top: 120px;
-  padding-bottom: 175px;
-  display: flex;
-}
-@media (max-width: 615px) {
-  .footer__body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-}
-.footer__row {
-  flex: 1 1 auto;
-}
-.footer__text {
-  color: #999999;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 18px;
+  font-weight: 700;
+  line-height: 19px;
+  color: #F9A43F;
   text-align: left;
-  margin-top: 15px;
+  padding: 7px 19px 8px 20px;
+  border: #F9A43F 2px solid;
+  border-radius: 9px;
+  transition: color 0.2s ease, border 0.2s ease;
+  margin-bottom: 31px;
 }
-@media (max-width: 615px) {
-  .footer__text {
-    margin-bottom: 20px;
-  }
-}
-.footer__box {
-  display: flex;
-}
-.footer__box div {
-  display: flex;
-  flex-direction: column;
-}
-.footer__link {
-  color: #fff;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 18px;
-  text-align: left;
-  margin-bottom: 25px;
-  transition: color 0.2s ease;
-  margin-right: 60px;
-}
-.footer__link:last-child {
-  margin-right: 0px;
-}
-@media (max-width: 700px) {
-  .footer__link {
-    margin-right: 40px;
-  }
-}
-.footer__link:hover {
-  color: #5AB963;
-}
-.footer__icons img {
-  margin-right: 19px;
-}
-.footer__icons:last-child {
-  margin-right: 0px;
+.button__end:hover {
+  border: #2A2A2A 2px solid;
+  color: #2A2A2A;
 }
